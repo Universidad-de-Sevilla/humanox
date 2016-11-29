@@ -1,0 +1,17 @@
+{% if numPages > 1 %}
+    <nav>
+        <ul class="pagination">
+            <li {% if currentPage == 1 %}class="disabled"{% endif %}>
+                <a href="{{ url }}/{{ currentPage - 1 }}" aria-label="{{ 'Previous'|trans }}">&laquo;</a>
+            </li>
+            {% for page in 1..numPages %}
+                <li {% if currentPage == page %}class="active"{% endif %}>
+                    <a href="{{ url }}/{{ page }}">{{ page }}</a>
+                </li>
+            {% endfor %}
+            <li {% if currentPage == numPages %}class="disabled"{% endif %}>
+                <a href="{{ url }}/{{ currentPage + 1 }}" aria-label="{{ 'Next'|trans }}">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+{% endif %}

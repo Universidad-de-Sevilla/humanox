@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+{% set active = 'login' %}
+{% set title = 'Login'|trans %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>{{ title }}</h2>
+
+            <form action="{{ path('admin_login_check') }}" method="post">
+                {{ error }}
+                <input type="text" description="_username" value="{{ last_username }}">
+                <input type="password" description="_password" value="">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

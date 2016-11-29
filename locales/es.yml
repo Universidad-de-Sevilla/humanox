@@ -1,0 +1,81 @@
+# locales/es.yml
+
+
+# ACTION
+
+Add: Añadir
+Add Person: Añadir Persona
+Cancel: Cancelar
+Delete: Borrar
+Delete Person: Borrar Persona
+Edit: Editar
+Edit Person: Editar Persona
+New: Nuevo
+New Person: Nueva Persona
+Next: Siguiente
+Previous: Previo
+Return to list: Volver al listado
+Save: Grabar
+Search: Buscar
+Toggle navigation: Conmutar navegación
+
+
+# FIELDS NAMES
+
+Birth Date: Fecha de nacimiento
+Comments: Comentarios
+Created at: Creado el
+Description: Descripción
+Email: Correo
+End Date: Fecha Baja
+First Name: Nombre
+Gender: Sexo
+ID: ID
+Last Name: Apellidos
+Locality: Localidad
+Name: Nombre
+People: Personas
+Person: Person
+Province: Provincia
+Start Date: Fecha Alta
+
+#HELP
+
+Select gender: Seleccione sexo
+
+
+# TITLES & MENUS
+
+Administration: Administración
+Configuration: Configuración
+Contact Data: Datos de Contacto
+Home: Inicio
+Login: Login
+Logout: Logout
+My profile: Mi Perfil
+New Person: Nueva Persona
+News: Novedades
+Others: Otros
+People: Personas
+People List: Lista de personas
+Person: Persona
+Person Data Sheet: Ficha Persona
+Person Edit: Editar Persona
+Personal Data: Datos Personales
+Photo Edit: Editar Fotografía
+
+
+# MESSAGES
+
+danger: ERROR
+No people defined yet: Todavía no hay personas
+Person data has been updated: Se han actualizado los datos de esta persona
+success: ÉXITO
+There is no record for this ID: No hay registro para esta ID
+Undefined: Indefinido
+warning: ATENCIÓN
+
+
+# VALIDATION
+
+name This value should not be blank. : El nombre no debe estar vacío.

@@ -1,0 +1,40 @@
+{% extends "layout.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'People List'|trans %}
+
+{% block content %}
+    <h2>
+        {{ title }}
+        <a class="btn btn-primary pull-right" role="button" href="{{ path('person_add') }}"><i
+                    class="fa fa-plus-circle"></i> {{ 'New'|trans }}</a>
+    </h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ 'ID'|trans }}</th>
+            <th>{{ 'Name'|trans }}</th>
+            <th>{{ 'Start Date'|trans }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for person in people %}
+            <tr>
+                <td><a href="{{ path('person_view', {'id': person.id}) }}">{{ person.id }}</a></td>
+                <td>
+                    <a href="{{ path('person_view', {'id': person.id}) }}">{{ person.firstName|e }} {{ person.lastName|e }}</a>
+                </td>
+                <td>{{ person.startDate|date('d/m/Y') }}</td>
+                <td><a href="{{ path('person_edit', {'id': person.id}) }}">{{ 'Edit'|trans }}</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'No people defined yet.'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "pagination.html.twig" %}
+
+{% endblock %}

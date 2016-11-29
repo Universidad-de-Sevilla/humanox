@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title }} - Universidad de Sevilla</title>
+        {% block css %}
+            <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+            <link href="/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+            <link href="/font-awesome-4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+            <link href="/css/portus.css" rel="stylesheet" type="text/css"/>
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block navigation %}
+            {% include "layout_topmenu.html.twig" %}
+        {% endblock %}
+
+        <div id="principal" role="main" class="container">
+            <!-- Alerts -->
+            {% set alertTypeAvaillable = [ 'info', 'success', 'warning', 'danger'] %}
+            {% for alert in alertTypeAvaillable %}
+                {% for message in app.session.getFlashBag.get(alert) %}
+                    <div class="alert alert-{{ alert }} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <strong>{{ alert|trans }}</strong> - {{ message|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+            {% block content %}{% endblock %}
+        </div>
+
+        {% include "layout_footer.html.twig" %}
+    </body>
+    {% block js %}
+        <script src="/js/jquery-1.12.3.min.js"></script>
+        <script src="/js/portus.js"></script>
+        <script src="/js/bootstrap.js"></script>
+    {% endblock %}
+</html>

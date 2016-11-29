@@ -1,0 +1,95 @@
+{% extends "layout.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'Person Edit'|trans ~ ': ' ~ person.firstName ~ ' '  ~ person.lastName %}
+
+{% block content %}
+    <form action="{{ path('person_save') }}" method="post" style="margin-top: 20px;">
+        <input type="hidden" name="id" value="{{ person.id }}">
+
+        <div class="row" style="padding-top: 20px;">
+            <div class="col-lg-8">
+                <h2>
+                    <div class="btn-group pull-right">
+                        <button type="submit" class="btn btn-white"><i class="fa fa-save"></i> {{ 'Save'|trans }}
+                        </button>
+                        <a href="{{ path('person_view', {'id': person.id}) }}" class="btn btn-white" role="button"><i
+                                    class="fa fa-times"></i> {{ 'Cancel'|trans }}</a>
+                    </div>
+                    {{ person.firstName }} {{ person.lastName }}</h2>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 20px">
+            <div class="col-lg-8">
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#personal" aria-controls="personal" role="tab"
+                                                              data-toggle="tab">{{ 'Personal Data'|trans }}</a></li>
+                    <li role="presentation"><a href="#contact" aria-controls="contact" role="tab"
+                                               data-toggle="tab">{{ 'Contact Data'|trans }}</a></li>
+                    <li role="presentation"><a href="#birth" aria-controls="birth" role="tab"
+                                               data-toggle="tab">{{ 'Birth Data'|trans }}</a></li>
+                    <li role="presentation"><a href="#others" aria-controls="others" role="tab"
+                                               data-toggle="tab">{{ 'Others'|trans }}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active col-lg-6" id="personal">
+
+                        <div class="form-group">
+                            <label for="firstName">{{ 'First Name'|trans }}</label>
+                            <input type="text" class="form-control" name="firstName"
+                                   value="{{ person.firstName }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">{{ 'Last Name'|trans }}</label>
+                            <input type="text" class="form-control" name="lastName"
+                                   value="{{ person.lastName }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">{{ 'Email'|trans }}</label>
+                            <input type="text" class="form-control" name="email" value="{{ person.email }}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genderId">{{ 'Gender'|trans }}</label>
+                            <select class="form-control" name="genderId">
+                                <option value="">{{ 'Select gender'|trans }}</option>
+                                {% for job in jobs %}
+                                    <option value="{{ gender.id }}"{% if person.gender.id is defined and person.gender.id == gender.id %} selected{% endif %}>{{ gender.description }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">{{ 'Start Date'|trans }}</label>
+                            <input type="text" class="form-control" name="startDate"
+                                   value="{{ person.startDate|date('d/m/Y') }}">
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="contact">
+                        ...
+                    </div>
+                    <div role="tabpanel" class="tab-pane col-lg-6" id="birth">
+                        <div class="form-group">
+                            <label for="birthDate">{{ 'Birth Date'|trans }}</label>
+                            <input type="text" class="form-control" name="birthDate"
+                                   value="{{ person.birthDate|date('d/m/Y') }}">
+                        </div>+
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="others">
+                        ...
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-3">
+                <img src="/private_upload/photo_booth/{{ person.id }}.jpg" width="200"><br>
+                <a href="{{ path('person_photo_edit', {'id': person.id}) }}">{{ 'Edit user photo'|trans }}</a>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
