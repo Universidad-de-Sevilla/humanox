@@ -1,11 +1,4 @@
 <?php
-/**
- * Portus Project
- * routes_admin.php
- * Developed by Juanan Ruiz
- * Created 15/4/16 - 21:25
- * Powered by PhpStorm.
- */
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;

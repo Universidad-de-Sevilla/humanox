@@ -1,6 +1,6 @@
 <?php
 
-namespace US\Portus\Entity\Person;
+namespace US\Humanox\Entity\Person;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;

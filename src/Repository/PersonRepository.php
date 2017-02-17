@@ -1,14 +1,9 @@
 <?php
-/**
- * Portus Project
- * Repository/PersonRepository.php
- */
 
-namespace US\Portus\Repository;
+namespace US\Humanox\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use US\Portus\Entity\Person\Person;
-
+use US\Humanox\Entity\Person\Person;
 
 /**
  * Class PersonRepository
@@ -65,7 +60,7 @@ class PersonRepository extends EntityRepository
      */
     public function count()
     {
-        $dql = 'SELECT COUNT(p.id) FROM US\Portus\Entity\Person\Person p';
+        $dql = 'SELECT COUNT(p.id) FROM US\Humanox\Entity\Person\Person p';
         $query = parent::getEntityManager()->createQuery($dql);
         return $query->getSingleScalarResult();
     }

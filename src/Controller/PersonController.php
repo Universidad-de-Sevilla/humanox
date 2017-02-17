@@ -1,14 +1,9 @@
 <?php
-/**
- * Portus - PersonController.php
- * Developed by Juanan Ruiz
- * Created 9/5/16 - 16:55
- */
 
-namespace US\Portus\Controller;
+namespace US\Humanox\Controller;
 
-use US\Portus\Entity\Person\Person;
-use US\Portus\Repository\PersonRepository;
+use US\Humanox\Entity\Person\Person;
+use US\Humanox\Repository\PersonRepository;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +35,7 @@ class PersonController
     public function indexAction(Application $app, $page, $limit)
     {
         $criteria = array();
-        $orderBy = array('lastName' => 'ASC');
+        $orderBy = array('apellidos' => 'ASC');
         $currentPage = $page;
         $numPages = 0;
         $total = $this->personRepository->count();

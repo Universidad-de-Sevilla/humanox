@@ -1,4 +1,4 @@
-{% extends "layout.html.twig" %}
+{% extends "layout/coreui/principal.html.twig" %}
 {% set active = 'people' %}
 {% set title = 'People List'|trans %}
 
@@ -12,8 +12,8 @@
         <thead>
         <tr>
             <th>{{ 'ID'|trans }}</th>
-            <th>{{ 'Name'|trans }}</th>
-            <th>{{ 'Start Date'|trans }}</th>
+            <th>{{ 'Nombre'|trans }}</th>
+            <th>{{ 'Alta'|trans }}</th>
             <th></th>
         </tr>
         </thead>
@@ -22,9 +22,9 @@
             <tr>
                 <td><a href="{{ path('person_view', {'id': person.id}) }}">{{ person.id }}</a></td>
                 <td>
-                    <a href="{{ path('person_view', {'id': person.id}) }}">{{ person.firstName|e }} {{ person.lastName|e }}</a>
+                    <a href="{{ path('person_view', {'id': person.id}) }}">{{ person.nombre|e }} {{ person.apellidos|e }}</a>
                 </td>
-                <td>{{ person.startDate|date('d/m/Y') }}</td>
+                <td>{{ person.creado|date('d/m/Y') }}</td>
                 <td><a href="{{ path('person_edit', {'id': person.id}) }}">{{ 'Edit'|trans }}</a></td>
             </tr>
         {% else %}
@@ -35,6 +35,6 @@
         </tbody>
     </table>
 
-    {% include "pagination.html.twig" %}
+    {% include "commons/pagination.html.twig" %}
 
 {% endblock %}

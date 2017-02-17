@@ -1,5 +1,5 @@
 {
-  "name": "US/humanox",
+  "name": "US/Humanox",
   "description": "Portal and Intranet based on silex and doctrine at University of Seville",
   "license": "MIT",
   "type": "project",
@@ -10,6 +10,7 @@
   },
   "require": {
     "dflydev/doctrine-orm-service-provider": "2.0.*@dev",
+    "jasig/phpcas": "1.3.*",
     "monolog/monolog": "~1.17",
     "php": ">=5.5.9",
     "silex/silex": "~2.0",

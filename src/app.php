@@ -1,15 +1,16 @@
 <?php
 /**
- * Portus Project - app.php
+ * Humanox Project - app.php
  * Created 1/5/16 - 0:00
  *
  * $app is a dependency container based on Pimple
  * ¡Silex itself is a Pimple container!
  */
 
-use US\Portus\Controller\PersonController;
-use US\Portus\Repository\PersonRepository;
-use US\Portus\Repository\GenderRepository;
+use US\Humanox\Controller\LoginController;
+use US\Humanox\Controller\PersonController;
+use US\Humanox\Repository\PersonRepository;
+use US\Humanox\Repository\GenderRepository;
 use Silex\Application;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RoutingServiceProvider;
@@ -34,7 +35,7 @@ $app["orm.em.options"] = array(
     "mappings" => array(
         array(
             "type" => "annotation",
-            "namespace" => "US\\Portus\\Entity",
+            "namespace" => "US\\Humanox\\Entity",
             "path" => realpath(__DIR__ . "/../src/Entity")
         )
     )
@@ -64,15 +65,18 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.fire
 
 // Register repositories as Silex services
 $app['repository.person'] = function ($app) {
-    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Portus\Entity\Person\Person'));
+    return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Person\Person'));
 };
 $app['repository.gender'] = function ($app) {
-    return new GenderRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Portus\Entity\Person\Gender'));
+    return new GenderRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Person\Gender'));
 };
 
 // Register controllers as Silex services
 $app['controller.person'] = function ($app) {
     return new PersonController($app['repository.person']);
+};
+$app['controller.login'] = function () {
+    return new LoginController();
 };
 
 

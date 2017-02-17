@@ -1,10 +1,6 @@
 <?php
-/**
- * Project Portus - Entity/EmailAddress.php
- * Created 5/10d/15 - 17:30
- */
 
-namespace US\Portus\Entity;
+namespace US\Humanox\Entity;
 
 /**
  * Class EmailAddress

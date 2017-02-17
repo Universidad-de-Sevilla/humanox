@@ -31,6 +31,7 @@ $app->get('/personas/{page}/{limit}', 'controller.person:indexAction')
     ->assert('page', '\d+')
     ->assert('limit', '\d+')
     ->bind('people');
+
 $app->get('/persona/{id}', 'controller.person:viewAction')
     ->assert('id', '\d+')
     ->bind('person_view');
@@ -43,18 +44,9 @@ $app->get('/private_upload/{item_id}/{path}', function ($item_id, $path) use ($a
 })
     ->assert('item', 'd+');
 
-//$app->get('/login', 'controller.login:loginAction')
-//    ->bind('login');
-
-$app->get('/login', function (Request $request) use ($app) {
-    return $app['twig']->render('login.html.twig', array(
-        'error' => $app['security.last_error']($request),
-        'last_username' => $app['session']->get('_security.last_username'),
-    ));
-})->bind('login');
-
-// Mounting admin routes
+// Mounting more routes
 $app->mount('/admin', include 'routes_admin.php');
+$app->mount('/login', include 'routes_login.php');
 
 
 // TESTS & SAMPLES //
