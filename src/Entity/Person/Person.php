@@ -3,6 +3,7 @@
 namespace US\Humanox\Entity\Person;
 
 /**
+ * Class Person
  * @Entity
  * @Table(name="AA_personas")
  **/
@@ -75,6 +76,7 @@ class Person
      * @var string
      */
     private $organizacion;
+
     /**
      * @Column(type="string")
      * @var string
