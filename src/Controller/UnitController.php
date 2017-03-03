@@ -150,8 +150,7 @@ class UnitController
      */
     public function addAction(Application $app)
     {
-        $genders = $app['repository.gender']->findAll();
-        return $app['twig']->render('unit/unit_add.html.twig', array('genders' => $genders));
+        return $app['twig']->render('unit/unit_add.html.twig');
     }
 
     /**
@@ -161,13 +160,11 @@ class UnitController
      */
     public function editAction(Application $app, $id)
     {
-        $genders = $app['repository.gender']->findAll();
         /** @var Unit $unit */
         $unit = $this->unitRepository->find($id);
         if ($unit) {
             $response = $app['twig']->render('unit/unit_edit.html.twig', array(
-                'unit' => $unit,
-                'genders' => $genders));
+                'unit' => $unit));
         } else {
             $response = $this->redirectOnInvalidId($app, $id);
         }

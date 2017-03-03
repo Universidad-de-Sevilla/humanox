@@ -36,6 +36,17 @@ $app->get('/persona/{id}', 'controller.person:viewAction')
     ->assert('id', '\d+')
     ->bind('person_view');
 
+$app->get('/unidades/{page}/{limit}', 'controller.unit:indexAction')
+    ->value('page', '1')
+    ->value('limit', '10')
+    ->assert('page', '\d+')
+    ->assert('limit', '\d+')
+    ->bind('units');
+
+$app->get('/unidad/{id}', 'controller.unit:viewAction')
+    ->assert('id', '\d+')
+    ->bind('unit_view');
+
 $app->get('/private_upload/{item_id}/{path}', function ($item_id, $path) use ($app) {
     if (!file_exists('../var/private_upload/' . $item_id . '/' . $path)) {
         $app->abort(404);

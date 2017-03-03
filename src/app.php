@@ -9,8 +9,10 @@
 
 use US\Humanox\Controller\LoginController;
 use US\Humanox\Controller\PersonController;
-use US\Humanox\Repository\PersonRepository;
+use US\Humanox\Controller\UnitController;
 use US\Humanox\Repository\GenderRepository;
+use US\Humanox\Repository\PersonRepository;
+use US\Humanox\Repository\UnitRepository;
 use Silex\Application;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\RoutingServiceProvider;
@@ -47,7 +49,6 @@ $app['security.access_rules'] = array(
     array('^/admin', 'ROLE_ADMIN'),
     array('^.*$', 'ROLE_USER'),
 );
-
 $app['security.firewalls'] = array(
     'admin' => array(
         'pattern' => '^/admin/',
@@ -64,16 +65,22 @@ $app['security.firewalls'] = array(
 $app->register(new Silex\Provider\SecurityServiceProvider(), $app['security.firewalls']);
 
 // Register repositories as Silex services
+$app['repository.gender'] = function ($app) {
+    return new GenderRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Person\Gender'));
+};
 $app['repository.person'] = function ($app) {
     return new PersonRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Person\Person'));
 };
-$app['repository.gender'] = function ($app) {
-    return new GenderRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Person\Gender'));
+$app['repository.unit'] = function ($app) {
+    return new UnitRepository($app['orm.em'], $app['orm.em']->getClassMetadata('US\Humanox\Entity\Unit\Unit'));
 };
 
 // Register controllers as Silex services
 $app['controller.person'] = function ($app) {
     return new PersonController($app['repository.person']);
+};
+$app['controller.unit'] = function ($app) {
+    return new UnitController($app['repository.unit']);
 };
 $app['controller.login'] = function () {
     return new LoginController();

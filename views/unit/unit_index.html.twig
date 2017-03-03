@@ -1,0 +1,40 @@
+{% extends "layout/coreui/principal.html.twig" %}
+{% set active = 'units' %}
+{% set title = 'Units List'|trans %}
+
+{% block content %}
+    <h2>
+        {{ title }}
+        <a class="btn btn-primary pull-right" role="button" href="{{ path('unit_add') }}"><i
+                    class="fa fa-plus-circle"></i> {{ 'New'|trans }}</a>
+    </h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>{{ 'ID'|trans }}</th>
+            <th>{{ 'Nombre'|trans }}</th>
+            <th>{{ 'Alta'|trans }}</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for unit in units %}
+            <tr>
+                <td><a href="{{ path('unit_view', {'id': unit.id}) }}">{{ unit.id }}</a></td>
+                <td>
+                    <a href="{{ path('unit_view', {'id': unit.id}) }}">{{ unit.longName|e }}</a>
+                </td>
+                <td>{{ unit.startDate|date('d/m/Y') }}</td>
+                <td><a href="{{ path('unit_edit', {'id': unit.id}) }}">{{ 'Edit'|trans }}</a></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'No units defined yet.'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include "commons/pagination.html.twig" %}
+
+{% endblock %}

@@ -26,6 +26,15 @@ $app->post('/persona/grabar', 'controller.person:saveAction')
 $app->get('/persona/borrar/{id}', 'controller.person:deleteAction')
     ->bind("person_delete");
 
+$app->get('/unidad/crear', 'controller.unit:addAction')
+    ->bind("unit_add");
+$app->get('/unidad/editar/{id}', 'controller.unit:editAction')
+    ->bind("unit_edit");
+$app->post('/unidad/grabar', 'controller.unit:saveAction')
+    ->bind("unit_save");
+$app->get('/unidad/borrar/{id}', 'controller.unit:deleteAction')
+    ->bind("unit_delete");
+
 // ensure that all Controller require logged-in users
 $admin->before(function (Request $request) use ($app) {
     // redirect the user to the login screen if access to the Resource is protected

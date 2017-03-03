@@ -1,29 +1,44 @@
 {% extends 'layout/coreui/principal.html.twig' %}
+{% set active = 'unit' %}
+{% set title = 'Edit'|trans ~ ': ' ~ unit.shortName %}
 
 {% block content %}
-    <h3>Recursos Humanos Universidad de Sevilla</h3>
-    <div class="row">
+    <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <strong>Credit Card</strong>
-                    <small>Form</small>
+                    <strong>Ficha de la entidad</strong>
                 </div>
                 <div class="card-block">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                                <label for="longName">{{ 'Long Name'|trans }}</label>
+                                <input type="text" class="form-control" name="longName" value="{{ unit.longName }}">
                             </div>
                         </div>
                     </div>
-                    <!--/row-->
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="ccnumber">Credit Card Number</label>
-                                <input type="text" class="form-control" id="ccnumber" placeholder="0000 0000 0000 0000">
+                                <label for="shortName">{{ 'Short Name'|trans }}</label>
+                                <input type="text" class="form-control" name="shortName" value="{{ unit.shortName }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="miniName">{{ 'Mini Name'|trans }}</label>
+                                <input type="text" class="form-control" name="miniName" value="{{ unit.miniName }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="notes">{{ 'Notes'|trans }}</label>
+                                <textarea class="form-control" name="notes">{{ unit.notes }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -77,7 +92,6 @@
                     <!--/row-->
                 </div>
             </div>
-
         </div>
         <!--/col-->
 
@@ -89,45 +103,8 @@
                     <small>Form</small>
                 </div>
                 <div class="card-block">
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" class="form-control" id="company" placeholder="Enter your company name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="vat">VAT</label>
-                        <input type="text" class="form-control" id="vat" placeholder="PL1234567890">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="street">Street</label>
-                        <input type="text" class="form-control" id="street" placeholder="Enter street name">
-                    </div>
-
-                    <div class="row">
-
-                        <div class="form-group col-sm-8">
-                            <label for="city">City</label>
-                            <input type="text" class="form-control" id="city" placeholder="Enter your city">
-                        </div>
-
-                        <div class="form-group col-sm-4">
-                            <label for="postal-code">Postal Code</label>
-                            <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
-                        </div>
-
-                    </div>
-                    <!--/row-->
-
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" placeholder="Country name">
-                    </div>
                 </div>
             </div>
-
         </div>
-        <!--/col-->
-
     </div>
 {% endblock %}
