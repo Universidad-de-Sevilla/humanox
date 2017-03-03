@@ -74,4 +74,100 @@ class Unit
         return $this->id;
     }
 
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongName()
+    {
+        return $this->longName;
+    }
+
+    /**
+     * @param string $longName
+     */
+    public function setLongName($longName)
+    {
+        $this->longName = $longName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMiniName()
+    {
+        return $this->miniName;
+    }
+
+    /**
+     * @param mixed $miniName
+     */
+    public function setMiniName($miniName)
+    {
+        $this->miniName = $miniName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortName()
+    {
+        return $this->shortName;
+    }
+
+    /**
+     * @param string $shortName
+     */
+    public function setShortName($shortName)
+    {
+        $this->shortName = $shortName;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
+
 }

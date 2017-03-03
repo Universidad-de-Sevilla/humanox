@@ -1,6 +1,5 @@
 <?php
 
-
 namespace US\Humanox\Entity\Unit;
 
 /**
@@ -59,5 +58,92 @@ class UnitDecorator
         $this->startDate = $data['startDate'];
     }
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     */
+    public function setNotes($notes)
+    {
+        $this->notes = $notes;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+    }
 
 }
