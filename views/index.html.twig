@@ -1,7 +1,8 @@
 {% extends 'layout/coreui/principal.html.twig' %}
+{% set active = 'home' %}
+{% set title = 'Inicio' %}
 
 {% block content %}
-    <h3>Recursos Humanos Universidad de Sevilla</h3>
     <div class="row">
         <div class="col-sm-6">
             <div class="card">
@@ -18,7 +19,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--/row-->
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -27,7 +27,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--/row-->
                     <div class="row">
                         <div class="form-group col-sm-4">
                             <label for="ccmonth">Month</label>
@@ -63,26 +62,18 @@
                                 <option>2025</option>
                             </select>
                         </div>
-
                         <div class="col-sm-4">
-
                             <div class="form-group">
                                 <label for="cvv">CVV/CVC</label>
                                 <input type="text" class="form-control" id="cvv" placeholder="123">
                             </div>
-
                         </div>
-
                     </div>
-                    <!--/row-->
                 </div>
             </div>
-
         </div>
-        <!--/col-->
 
         <div class="col-sm-6">
-
             <div class="card">
                 <div class="card-header">
                     <strong>Company</strong>
@@ -93,41 +84,30 @@
                         <label for="company">Company</label>
                         <input type="text" class="form-control" id="company" placeholder="Enter your company name">
                     </div>
-
                     <div class="form-group">
                         <label for="vat">VAT</label>
                         <input type="text" class="form-control" id="vat" placeholder="PL1234567890">
                     </div>
-
                     <div class="form-group">
                         <label for="street">Street</label>
                         <input type="text" class="form-control" id="street" placeholder="Enter street name">
                     </div>
-
                     <div class="row">
-
                         <div class="form-group col-sm-8">
                             <label for="city">City</label>
                             <input type="text" class="form-control" id="city" placeholder="Enter your city">
                         </div>
-
                         <div class="form-group col-sm-4">
                             <label for="postal-code">Postal Code</label>
                             <input type="text" class="form-control" id="postal-code" placeholder="Postal Code">
                         </div>
-
                     </div>
-                    <!--/row-->
-
                     <div class="form-group">
                         <label for="country">Country</label>
                         <input type="text" class="form-control" id="country" placeholder="Country name">
                     </div>
                 </div>
             </div>
-
         </div>
-        <!--/col-->
-
     </div>
 {% endblock %}
