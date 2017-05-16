@@ -1,6 +1,6 @@
 <?php
 
-namespace US\Humanox\Entity;
+namespace US\Humanox\Entity\Person;
 
 /**
  * Class EmailAddress

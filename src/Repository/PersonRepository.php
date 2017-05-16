@@ -2,6 +2,9 @@
 
 namespace US\Humanox\Repository;
 
+
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\EntityRepository;
 use US\Humanox\Entity\Person\Person;
 
@@ -63,5 +66,11 @@ class PersonRepository extends EntityRepository
         $dql = 'SELECT COUNT(p.id) FROM US\Humanox\Entity\Person\Person p';
         $query = parent::getEntityManager()->createQuery($dql);
         return $query->getSingleScalarResult();
+    }
+
+    static public function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint('email', new Assert\NotBlank());
+
     }
 }

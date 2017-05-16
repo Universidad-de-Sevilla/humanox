@@ -42,16 +42,16 @@ class Person
     private $creado;
 
     /**
-     * @Column(type="string")
+     * @Column(name="dni_sin_letra", type="string")
      * @var string
      */
-    private $dni_sin_letra;
+    private $dniSinLetra;
 
     /**
-     * @Column(type="datetime", nullable=TRUE)
+     * @Column(name="fecha_nacimiento", type="datetime", nullable=TRUE)
      * @var \DateTime
      */
-    private $fecha_nacimiento;
+    private $fechaNacimiento;
 
     /**
      * @Column(type="datetime", nullable=TRUE)
@@ -84,22 +84,22 @@ class Person
     private $sexo;
 
     /**
-     * @Column(type="string")
+     * @Column(name="telefono_trabajo", type="string")
      * @var string
      */
-    private $telefono_trabajo;
+    private $telefonoTrabajo;
 
     /**
-     * @Column(type="string")
+     * @Column(name="telefono_domicilio", type="string")
      * @var string
      */
-    private $telefono_domicilio;
+    private $telefonoDomicilio;
 
     /**
-     * @Column(type="string")
+     * @Column(name="telefono_movil", type="string")
      * @var string
      */
-    private $telefono_movil;
+    private $telefonoMovil;
 
     /**
      * @Column(type="string")
@@ -203,15 +203,15 @@ class Person
      */
     public function getDniSinLetra()
     {
-        return $this->dni_sin_letra;
+        return $this->dniSinLetra;
     }
 
     /**
-     * @param string $dni_sin_letra
+     * @param string $dniSinLetra
      */
-    public function setDniSinLetra($dni_sin_letra)
+    public function setDniSinLetra($dniSinLetra)
     {
-        $this->dni_sin_letra = $dni_sin_letra;
+        $this->dniSinLetra = $dniSinLetra;
     }
 
     /**
@@ -219,15 +219,15 @@ class Person
      */
     public function getFechaNacimiento()
     {
-        return $this->fecha_nacimiento;
+        return $this->fechaNacimiento;
     }
 
     /**
-     * @param \DateTime $fecha_nacimiento
+     * @param \DateTime $fechaNacimiento
      */
-    public function setFechaNacimiento($fecha_nacimiento)
+    public function setFechaNacimiento($fechaNacimiento)
     {
-        $this->fecha_nacimiento = $fecha_nacimiento;
+        $this->fechaNacimiento = $fechaNacimiento;
     }
 
     /**
@@ -315,15 +315,15 @@ class Person
      */
     public function getTelefonoTrabajo()
     {
-        return $this->telefono_trabajo;
+        return $this->telefonoTrabajo;
     }
 
     /**
-     * @param string $telefono_trabajo
+     * @param string $telefonoTrabajo
      */
-    public function setTelefonoTrabajo($telefono_trabajo)
+    public function setTelefonoTrabajo($telefonoTrabajo)
     {
-        $this->telefono_trabajo = $telefono_trabajo;
+        $this->telefonoTrabajo = $telefonoTrabajo;
     }
 
     /**
@@ -331,15 +331,15 @@ class Person
      */
     public function getTelefonoDomicilio()
     {
-        return $this->telefono_domicilio;
+        return $this->telefonoDomicilio;
     }
 
     /**
-     * @param string $telefono_domicilio
+     * @param string $telefonoDomicilio
      */
-    public function setTelefonoDomicilio($telefono_domicilio)
+    public function setTelefonoDomicilio($telefonoDomicilio)
     {
-        $this->telefono_domicilio = $telefono_domicilio;
+        $this->telefonoDomicilio = $telefonoDomicilio;
     }
 
     /**
@@ -347,15 +347,15 @@ class Person
      */
     public function getTelefonoMovil()
     {
-        return $this->telefono_movil;
+        return $this->telefonoMovil;
     }
 
     /**
-     * @param string $telefono_movil
+     * @param string $telefonoMovil
      */
-    public function setTelefonoMovil($telefono_movil)
+    public function setTelefonoMovil($telefonoMovil)
     {
-        $this->telefono_movil = $telefono_movil;
+        $this->telefonoMovil = $telefonoMovil;
     }
 
     /**
