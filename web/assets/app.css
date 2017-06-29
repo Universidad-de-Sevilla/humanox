@@ -1,3 +1,7 @@
 div#principal {
     margin-top: 50px;
 }
+
+.btn-danger {
+    float: right !important;
+}

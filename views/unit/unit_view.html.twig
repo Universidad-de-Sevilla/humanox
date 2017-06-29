@@ -1,0 +1,60 @@
+{% extends "layout/coreui/principal.html.twig" %}
+{% set active = 'unit' %}
+{% set title = 'Unit Data Sheet'|trans %}
+
+{% block content %}
+    <div class="row" style="padding-top: 20px;">
+        <div class="col-lg-8">
+            <h2>
+                <div class="btn-group pull-right">
+                    <a href="{{ path('units') }}" class="btn btn-white"
+                       role="button"><i class="fa fa-list"></i> {{ 'Return to list'|trans }}</a> &nbsp;
+                    <a href="{{ path('unit_edit', {'id': unit.id}) }}" class="btn btn-white"
+                       role="button"><i class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
+                </div>
+                {{ unit.longName }}</h2>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 20px">
+        <div class="col-lg-8">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#personal" aria-controls="personal" role="tab"
+                                                          data-toggle="tab">{{ 'Personal Data'|trans }}</a></li>
+                <li role="presentation"><a href="#contact" aria-controls="contact" role="tab"
+                                           data-toggle="tab">{{ 'Contact Data'|trans }}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="personal" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Name'|trans }}:</dt>
+                        <dd>{{ unit.longName }}</dd>
+
+                        <dt>{{ 'Short Name'|trans }}:</dt>
+                        <dd>{{ unit.shortName }}</dd>
+
+                        <dt>{{ 'Start Date'|trans }}:</dt>
+                        <dd>{{ unit.startDate|date('d/m/Y') }}</dd>
+                    </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="contact" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Mini Name'|trans }}:</dt>
+                        <dd>{{ unit.miniName }}</dd>
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <p>
+                <img src="/private_upload/photo_booth/{{ unit.id }}.jpg" width="200"><br>
+            </p>
+
+            <p>
+
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
