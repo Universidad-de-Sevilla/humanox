@@ -2,13 +2,25 @@
 {% set active = 'unit' %}
 {% set title = 'Edit'|trans ~ ': ' ~ unit.shortName %}
 
+{% block js %}
+    {{ parent() }}
+    <!-- Actual view -->
+    <script src="/assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+{% endblock %}
+
+{% block css %}
+    {{ parent() }}
+    <!-- Actual view -->
+    <link href="/assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
     <div class="row" xmlns="http://www.w3.org/1999/html">
         <div class="col-sm-6">
-            <form action="{{ path('unit_save')}}" method="post">
+            <form action="{{ path('unit_save') }}" method="post">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Ficha de la entidad</strong>
+                        <strong>{{ 'Unit Datasheet'|trans }}</strong>
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -45,7 +57,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-sm-4">
+                            <div class="form-group col-sm-2">
                                 <label for="ccmonth">Month</label>
                                 <select class="form-control" id="ccmonth">
                                     <option>1</option>
@@ -63,38 +75,42 @@
                                 </select>
                             </div>
                             <div class="form-group col-sm-4">
-                                <label for="ccyear">Year</label>
-                                <select class="form-control" id="ccyear">
-                                    <option>2014</option>
-                                    <option>2015</option>
-                                    <option>2016</option>
-                                    <option>2017</option>
-                                    <option>2018</option>
-                                    <option>2019</option>
-                                    <option>2020</option>
-                                    <option>2021</option>
-                                    <option>2022</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                    <option>2025</option>
-                                </select>
-                            </div>
+                                <label for="end_date">{{ 'End Date'|trans }}</label>
 
-                            <div class="col-sm-4">
-
-                                <div class="form-group">
-                                    <label for="cvv">CVV/CVC</label>
-                                    <input type="text" class="form-control" id="cvv" placeholder="123">
+                                <div class="input-append date datetimepicker">
+                                    <input class="input-small" data-format="dd-MM-yyyy" name="fecha_inicio_miembro"
+                                           type="text" required="">
+                                    <span class="add-on">
+                                <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar"
+                                   class="fa-calendar fa"></i>
+                            </span>
                                 </div>
-
                             </div>
 
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for="end_date">{{ 'End Date'|trans }}</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input type="text" class="form-control datepicker" id="end_date"
+                                               name="EndDate" value="{{ unit.endDate }}">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control date" name="fechaNacimiento"
+                                       value="23/11/1984">
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-sm btn-primary"><i
                                     class="fa fa-dot-circle-o"></i> {{ 'Submit'|trans }}</button>
-                        <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> {{ 'Reset'|trans }}
+                        <button type="reset" class="btn btn-sm btn-danger"><i
+                                    class="fa fa-ban"></i> {{ 'Reset'|trans }}
                         </button>
                     </div>
                 </div>

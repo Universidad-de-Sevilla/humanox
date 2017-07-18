@@ -9,13 +9,13 @@
     <meta name="author" content="Recursos Humanos - Universidad de Sevilla">
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="/assets/coreui_theme/img/favicon.png">
-    <title>{% if title is defined %}{{ title }} - {% endif %}Humanox</title>
-    <!-- Icons -->
-    <link href="/assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <!-- Main styles for this application -->
-    <link href="/assets/coreui_theme/css/style.css" rel="stylesheet">
-    <link href="/assets/app.css" rel="stylesheet">
+    <title>{% if title is defined %}{{ title }} - {% endif %}Universidad de Sevilla</title>
+    {% block css %}
+        <link href="/assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <link href="/assets/coreui_theme/css/style.css" rel="stylesheet">
+        <link href="/assets/app.css" rel="stylesheet">
+    {% endblock %}
 </head>
 
 <!-- BODY options, add following classes to body to change options
@@ -91,7 +91,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link aside-toggle" href="#">☰</a>
+                {#<a class="nav-link aside-toggle" href="#">☰</a>#}
             </li>
         </ul>
     </div>
@@ -128,7 +128,7 @@
 </main>
 
 {% block menu_lateral_secundario %}
-    {% include "layout/coreui/menu_lateral_secundario.html.twig" %}
+    {#{% include "layout/coreui/menu_lateral_secundario.html.twig" %}#}
 {% endblock %}
 
 {% block footer %}
@@ -136,12 +136,10 @@
 {% endblock %}
 
 {% block js %}
-    <!-- Bootstrap and necessary plugins -->
     <script src="/assets/jquery/dist/jquery.min.js"></script>
     <script src="/assets/tether/dist/js/tether.min.js"></script>
     <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/pace/pace.min.js"></script>
-    <!-- GenesisUI main scripts -->
     <script src="/assets/coreui_theme/js/app.js"></script>
     <script src="/assets/app.js"></script>
 {% endblock %}
