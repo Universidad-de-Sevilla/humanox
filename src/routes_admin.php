@@ -16,7 +16,8 @@ $admin->get('/test', function () {
 $admin->get('/admin_login_check', function () {
     return 'Logged';
 });
-
+$app->get('/personas', 'controller.person:indexAction')
+    ->bind('people');
 $app->get('/persona/crear', 'controller.person:addAction')
     ->bind("person_add");
 $app->get('/persona/editar/{id}', 'controller.person:editAction')
@@ -25,6 +26,12 @@ $app->post('/persona/grabar', 'controller.person:saveAction')
     ->bind("person_save");
 $app->get('/persona/borrar/{id}', 'controller.person:deleteAction')
     ->bind("person_delete");
+
+$app->get('cartera/crear', 'controller.portfolio:addAction')
+    ->bind('portfolio_add');
+
+$app->get('servicio/crear', 'controller.service:addAction')
+    ->bind('service_add');
 
 $app->get('/unidad/crear', 'controller.unit:addAction')
     ->bind("unit_add");
