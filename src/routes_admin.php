@@ -22,6 +22,8 @@ $app->get('/persona/crear', 'controller.person:addAction')
     ->bind("person_add");
 $app->get('/persona/editar/{id}', 'controller.person:editAction')
     ->bind("person_edit");
+$app->get('/persona/editar_foto/{id}', 'controller.person:photoEdit')
+    ->bind('person_photo_edit');
 $app->post('/persona/grabar', 'controller.person:saveAction')
     ->bind("person_save");
 $app->get('/persona/borrar/{id}', 'controller.person:deleteAction')

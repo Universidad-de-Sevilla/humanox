@@ -58,12 +58,9 @@ class Unit
      */
     public function __construct($data)
     {
-        $this->endDate = $data['endDate'];
-        $this->longName = $data['longName'];
-        $this->miniName = $data['miniName'];
-        $this->notes = $data['notes'];
-        $this->shortName = $data['shortName'];
-        $this->startDate = $data['startDate'];
+        foreach ($data as $field => $value) {
+            $this->$field = $value;
+        }
     }
 
     /**

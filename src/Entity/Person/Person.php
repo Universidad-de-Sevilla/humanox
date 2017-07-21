@@ -18,97 +18,97 @@ class Person
     private $id;
 
     /**
-     * @Column(type="string")
+     * @Column(name="apellidos", type="string")
      * @var string
      */
-    private $apellidos;
+    private $lastName;
 
     /**
-     * @Column(type="string", unique=TRUE)
+     * @Column(name="correo1", type="string", unique=TRUE)
      * @var EmailAddress
      */
-    private $correo1;
+    private $email1;
 
     /**
-     * @Column(type="string")
+     * @Column(name="correo2", type="string")
      * @var EmailAddress
      */
-    private $correo2;
+    private $email2;
 
     /**
-     * @Column(type="datetime")
+     * @Column(name="creado", type="datetime")
      * @var \DateTime
      */
-    private $creado;
+    private $createdAt;
 
     /**
      * @Column(name="dni_sin_letra", type="string")
      * @var string
      */
-    private $dniSinLetra;
+    private $dni;
 
     /**
      * @Column(name="fecha_nacimiento", type="datetime", nullable=TRUE)
      * @var \DateTime
      */
-    private $fechaNacimiento;
+    private $birthDate;
 
     /**
-     * @Column(type="datetime", nullable=TRUE)
+     * @Column(name="modificado", type="datetime", nullable=TRUE)
      * @var \DateTime
      */
-    private $modificado;
+    private $modifiedAt;
 
     /**
-     * @Column(type="string")
+     * @Column(name="nif", type="string")
      * @var string
      */
     private $nif;
 
     /**
-     * @Column(type="string")
+     * @Column(name="nombre", type="string")
      * @var string
      */
-    private $nombre;
+    private $firstName;
 
     /**
-     * @Column(type="string")
+     * @Column(name="organizacion", type="string")
      * @var string
      */
-    private $organizacion;
+    private $organization;
 
     /**
-     * @Column(type="string")
+     * @Column(name="sexo", type="string")
      * @var string
      */
-    private $sexo;
+    private $gender;
 
     /**
      * @Column(name="telefono_trabajo", type="string")
      * @var string
      */
-    private $telefonoTrabajo;
+    private $phoneWork;
 
     /**
      * @Column(name="telefono_domicilio", type="string")
      * @var string
      */
-    private $telefonoDomicilio;
+    private $phoneHome;
 
     /**
      * @Column(name="telefono_movil", type="string")
      * @var string
      */
-    private $telefonoMovil;
+    private $phoneCell;
 
     /**
-     * @Column(type="string")
+     * @Column(name="usesrelacion", type="string")
      * @var string
      */
     private $usesrelacion;
 
     /**
-     * @Column(type="string")
+     * @Column(name="uvus", type="string")
      * @var string
      */
     private $uvus;
@@ -119,11 +119,9 @@ class Person
      */
     function __construct($data)
     {
-        $this->apellidos = $data['apellidos'];
-        $this->correo1 = $data['correo1'];
-        $this->creado = $data['creado'];
-        $this->nombre = $data['nombre'];
-        $this->sexo = $data['sexo'];
+        foreach ($data as $field => $value) {
+            $this->$field = $value;
+        }
     }
 
     /**
@@ -137,113 +135,113 @@ class Person
     /**
      * @return string
      */
-    public function getApellidos()
+    public function getLastName()
     {
-        return $this->apellidos;
+        return $this->lastName;
     }
 
     /**
-     * @param string $apellidos
+     * @param string $lastName
      */
-    public function setApellidos($apellidos)
+    public function setLastName($lastName)
     {
-        $this->apellidos = $apellidos;
-    }
-
-    /**
-     * @return EmailAddress
-     */
-    public function getCorreo1()
-    {
-        return $this->correo1;
-    }
-
-    /**
-     * @param EmailAddress $correo1
-     */
-    public function setCorreo1($correo1)
-    {
-        $this->correo1 = $correo1;
+        $this->lastName = $lastName;
     }
 
     /**
      * @return EmailAddress
      */
-    public function getCorreo2()
+    public function getEmail1()
     {
-        return $this->correo2;
+        return $this->email1;
     }
 
     /**
-     * @param EmailAddress $correo2
+     * @param EmailAddress $email1
      */
-    public function setCorreo2($correo2)
+    public function setEmail1($email1)
     {
-        $this->correo2 = $correo2;
+        $this->email1 = $email1;
+    }
+
+    /**
+     * @return EmailAddress
+     */
+    public function getEmail2()
+    {
+        return $this->email2;
+    }
+
+    /**
+     * @param EmailAddress $email2
+     */
+    public function setEmail2($email2)
+    {
+        $this->email2 = $email2;
     }
 
     /**
      * @return \DateTime
      */
-    public function getCreado()
+    public function getCreatedAt()
     {
-        return $this->creado;
+        return $this->createdAt;
     }
 
     /**
-     * @param \DateTime $creado
+     * @param \DateTime $createdAt
      */
-    public function setCreado($creado)
+    public function setCreatedAt($createdAt)
     {
-        $this->creado = $creado;
+        $this->createdAt = $createdAt;
     }
 
     /**
      * @return string
      */
-    public function getDniSinLetra()
+    public function getDni()
     {
-        return $this->dniSinLetra;
+        return $this->dni;
     }
 
     /**
-     * @param string $dniSinLetra
+     * @param string $dni
      */
-    public function setDniSinLetra($dniSinLetra)
+    public function setDni($dni)
     {
-        $this->dniSinLetra = $dniSinLetra;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getFechaNacimiento()
-    {
-        return $this->fechaNacimiento;
-    }
-
-    /**
-     * @param \DateTime $fechaNacimiento
-     */
-    public function setFechaNacimiento($fechaNacimiento)
-    {
-        $this->fechaNacimiento = $fechaNacimiento;
+        $this->dni = $dni;
     }
 
     /**
      * @return \DateTime
      */
-    public function getModificado()
+    public function getBirthDate()
     {
-        return $this->modificado;
+        return $this->birthDate;
     }
 
     /**
-     * @param \DateTime $modificado
+     * @param \DateTime $birthDate
      */
-    public function setModificado($modificado)
+    public function setBirthDate($birthDate)
     {
-        $this->modificado = $modificado;
+        $this->birthDate = $birthDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getModifiedAt()
+    {
+        return $this->modifiedAt;
+    }
+
+    /**
+     * @param \DateTime $modifiedAt
+     */
+    public function setModifiedAt($modifiedAt)
+    {
+        $this->modifiedAt = $modifiedAt;
     }
 
     /**
@@ -265,97 +263,97 @@ class Person
     /**
      * @return string
      */
-    public function getNombre()
+    public function getFirstName()
     {
-        return $this->nombre;
+        return $this->firstName;
     }
 
     /**
-     * @param string $nombre
+     * @param string $firstName
      */
-    public function setNombre($nombre)
+    public function setFirstName($firstName)
     {
-        $this->nombre = $nombre;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOrganizacion()
-    {
-        return $this->organizacion;
-    }
-
-    /**
-     * @param string $organizacion
-     */
-    public function setOrganizacion($organizacion)
-    {
-        $this->organizacion = $organizacion;
+        $this->firstName = $firstName;
     }
 
     /**
      * @return string
      */
-    public function getSexo()
+    public function getOrganization()
     {
-        return $this->sexo;
+        return $this->organization;
     }
 
     /**
-     * @param string $sexo
+     * @param string $organization
      */
-    public function setSexo($sexo)
+    public function setOrganization($organization)
     {
-        $this->sexo = $sexo;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTelefonoTrabajo()
-    {
-        return $this->telefonoTrabajo;
-    }
-
-    /**
-     * @param string $telefonoTrabajo
-     */
-    public function setTelefonoTrabajo($telefonoTrabajo)
-    {
-        $this->telefonoTrabajo = $telefonoTrabajo;
+        $this->organization = $organization;
     }
 
     /**
      * @return string
      */
-    public function getTelefonoDomicilio()
+    public function getGender()
     {
-        return $this->telefonoDomicilio;
+        return $this->gender;
     }
 
     /**
-     * @param string $telefonoDomicilio
+     * @param string $gender
      */
-    public function setTelefonoDomicilio($telefonoDomicilio)
+    public function setGender($gender)
     {
-        $this->telefonoDomicilio = $telefonoDomicilio;
+        $this->gender = $gender;
     }
 
     /**
      * @return string
      */
-    public function getTelefonoMovil()
+    public function getPhoneWork()
     {
-        return $this->telefonoMovil;
+        return $this->phoneWork;
     }
 
     /**
-     * @param string $telefonoMovil
+     * @param string $phoneWork
      */
-    public function setTelefonoMovil($telefonoMovil)
+    public function setPhoneWork($phoneWork)
     {
-        $this->telefonoMovil = $telefonoMovil;
+        $this->phoneWork = $phoneWork;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneHome()
+    {
+        return $this->phoneHome;
+    }
+
+    /**
+     * @param string $phoneHome
+     */
+    public function setPhoneHome($phoneHome)
+    {
+        $this->phoneHome = $phoneHome;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneCell()
+    {
+        return $this->phoneCell;
+    }
+
+    /**
+     * @param string $phoneCell
+     */
+    public function setPhoneCell($phoneCell)
+    {
+        $this->phoneCell = $phoneCell;
     }
 
     /**

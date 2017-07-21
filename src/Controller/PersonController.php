@@ -35,7 +35,7 @@ class PersonController
     public function indexAction(Application $app, $page, $limit)
     {
         $criteria = array();
-        $orderBy = array('apellidos' => 'ASC');
+        $orderBy = array('lastName' => 'ASC');
         $currentPage = $page;
         $numPages = 0;
         $total = $this->personRepository->count();
@@ -99,22 +99,45 @@ class PersonController
      */
     public function saveAction(Request $request, Application $app)
     {
+        $data['birthDate'] = \DateTime::createFromFormat('d/m/Y', $request->get('birthDate'));
+        $data['dni'] = $request->get('dni');
+        $data['email1'] = $request->get('email1');
+        $data['email2'] = $request->get('email2');
         $data['firstName'] = $request->get('firstName');
+        $data['gender'] = $request->get('gender');
         $data['lastName'] = $request->get('lastName');
-        $data['email'] = $request->get('email');
-        $data['gender'] = $app['repository.gender']->find($request->get('genderId'));
+        $data['nif'] = $request->get('nif');
+        $data['organization'] = $request->get('organization');
+        $data['phoneCell'] = $request->get('phoneCell');
+        $data['phoneHome'] = $request->get('phoneHome');
+        $data['phoneWork'] = $request->get('phone');
+        $data['organization'] = $request->get('organization');
+        $data['usesrelacion'] = $request->get('usesrelacion');
+        $data['uvus'] = $request->get('uvus');
+
 
         if ($data['id'] = $request->get('id')) {
             /** @var Person $person */
             $person = $this->personRepository->find($data['id']);
+            $person->setBirthDate($data['birthDate']);
+            $person->setDni($data['dni']);
+            $person->setEmail1($data['email1']);
+            $person->setEmail2($data['email2']);
             $person->setFirstName($data['firstName']);
-            $person->setLastName($data['lastName']);
-            $person->setEmail($data['email']);
             $person->setGender($data['gender']);
+            $person->setLastName($data['lastName']);
+            $person->setNif($data['nif']);
+            $person->setOrganization($data['organization']);
+            $person->setPhoneCell($data['phoneCell']);
+            $person->setPhoneHome($data['phoneHome']);
+            $person->setPhoneWork($data['phoneWork']);
+            $person->setOrganization($data['organization']);
+            $person->setUsesrelacion($data['usesrelacion']);
+            $person->setUvus($data['uvus']);
             $message = "Person data has been updated"; // in case of success
             $redirect = $app['url_generator']->generate('person_edit', $data); // in case of failure
         } else {
-            $data['startDate'] = new \DateTime();
+            $data['createdAt'] = new \DateTime();
             $person = new Person($data);
             $message = "Person has been created"; // in case of success
             $redirect = $app['url_generator']->generate('person_add'); // in case of failure
@@ -147,8 +170,7 @@ class PersonController
      */
     public function addAction(Application $app)
     {
-        $genders = $app['repository.gender']->findAll();
-        return $app['twig']->render('person/person_add.html.twig', array('genders' => $genders));
+        return $app['twig']->render('person/person_add.html.twig');
     }
 
     /**
@@ -158,13 +180,11 @@ class PersonController
      */
     public function editAction(Application $app, $id)
     {
-        $genders = $app['repository.gender']->findAll();
         /** @var Person $person */
         $person = $this->personRepository->find($id);
         if ($person) {
             $response = $app['twig']->render('person/person_edit.html.twig', array(
-                'person' => $person,
-                'genders' => $genders));
+                'person' => $person));
         } else {
             $response = $this->redirectOnInvalidId($app, $id);
         }
