@@ -2,17 +2,17 @@
 
 namespace US\Humanox\Entity\Survey;
 
+
 /**
- * Class QuestionOption
  * @Entity
- * @Table(name="SurveyQuestionOption"
+ * @Table(name="SurveyQuestionOption")
  */
 class QuestionOption
 {
     /**
      * @Id
-     * @Column(type="integer")
      * @GeneratedValue
+     * @Column(type="integer")
      * @var int
      */
     private $id;

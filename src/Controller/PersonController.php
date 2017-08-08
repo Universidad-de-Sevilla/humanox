@@ -52,7 +52,7 @@ class PersonController
             $people = null;
         }
 
-        return $app['twig']->render('person/person_index.html.twig', array(
+        return $app['twig']->render('portal/person/person_index.html.twig', array(
             'people' => $people,
             'currentPage' => $currentPage,
             'numPages' => $numPages,

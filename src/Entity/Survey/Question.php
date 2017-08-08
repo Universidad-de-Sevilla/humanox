@@ -2,8 +2,8 @@
 
 namespace US\Humanox\Entity\Survey;
 
+
 /**
- * Class Question
  * @Entity
  * @Table(name="SurveyQuestion"
  */
@@ -11,8 +11,8 @@ class Question
 {
     /**
      * @Id
-     * @Column(type="integer")
      * @GeneratedValue
+     * @Column(type="integer")
      * @var int
      */
     private $id;
@@ -34,7 +34,5 @@ class Question
      * @var QuestionType
      */
     private $type;
-
-
 
 }

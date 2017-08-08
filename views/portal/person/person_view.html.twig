@@ -1,0 +1,64 @@
+{% extends "portal/layout/main.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'Person Data Sheet'|trans %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <div class="btn-group pull-right">
+                <a href="{{ path('people') }}" class="btn btn-white"
+                   role="button"><i class="fa fa-list"></i> {{ 'Return to list'|trans }}</a> &nbsp;
+                <a href="{{ path('person_edit', {'id': person.id}) }}" class="btn btn-white"
+                   role="button"><i class="fa fa-pencil"></i> {{ 'Edit'|trans }}</a>
+            </div>
+            {{ person.firstName }} {{ person.lastName }}
+        </div>
+        <div class="card-block">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a href="#personal" aria-controls="personal" role="tab" class="nav-link active"
+                       data-toggle="tab">{{ 'Personal Data'|trans }}</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="#contact" aria-controls="contact" role="tab" class="nav-link"
+                       data-toggle="tab">{{ 'Contact Data'|trans }}</a></li>
+                <li class="nav-item" role="presentation">
+                    <a href="#birth" aria-controls="birth" role="tab" class="nav-link"
+                       data-toggle="tab">{{ 'Birth Data'|trans }}</a></li>
+                <li class="nav-item" role="presentation">
+                    <a href="#others" aria-controls="others" role="tab" class="nav-link"
+                       data-toggle="tab">{{ 'Others'|trans }}</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="personal" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Name'|trans }}:</dt>
+                        <dd>{{ person.firstName }} {{ person.lastName }}</dd>
+                        <dt>{{ 'Email'|trans }}:</dt>
+                        <dd>{{ person.email1 }}</dd>
+                        <dt>{{ 'Start Date'|trans }}:</dt>
+                        <dd>{{ person.createdAt|date('d/m/Y') }}</dd>
+                    </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="contact" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Email'|trans }}:</dt>
+                        <dd>{{ person.email1 }}</dd>
+                    </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="birth" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Birth Date'|trans }}:</dt>
+                        <dd>{{ person.birthDate|date('d/m/Y') }}</dd>
+                    </dl>
+                </div>
+                <div role="tabpanel" class="tab-pane col-lg-6" id="others" style="padding-top: 20px">
+                    <dl class="dl-horizontal">
+                        <dt>{{ 'Email'|trans }}:</dt>
+                        <dd>{{ person.email1 }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

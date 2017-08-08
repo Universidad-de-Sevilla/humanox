@@ -1,0 +1,46 @@
+{% extends "portal/layout/main.html.twig" %}
+{% set active = 'people' %}
+{% set title = 'People List'|trans %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <strong>
+                {{ title }}
+                <a class="btn btn-primary pull-right" role="button" href="{{ path('person_add') }}"><i
+                            class="fa fa-plus-circle"></i> {{ 'New'|trans }}</a>
+            </strong>
+        </div>
+        <div class="card-block">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>{{ 'ID'|trans }}</th>
+                    <th>{{ 'Nombre'|trans }}</th>
+                    <th>{{ 'Alta'|trans }}</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for person in people %}
+                    <tr>
+                        <td><a href="{{ path('person_view', {'id': person.id}) }}">{{ person.id }}</a></td>
+                        <td>
+                            <a href="{{ path('person_view', {'id': person.id}) }}">{{ person.firstName|e }} {{ person.lastName|e }}</a>
+                        </td>
+                        <td>{{ person.createdAt|date('d/m/Y') }}</td>
+                        <td><a href="{{ path('person_edit', {'id': person.id}) }}">{{ 'Edit'|trans }}</a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">{{ 'No people defined yet.'|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% include "commons/pagination.html.twig" %}
+
+{% endblock %}

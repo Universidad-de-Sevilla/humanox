@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Web pública de la Dirección de Recursos Humanos de la Universidad de Sevilla">
+    <meta name="author" content="Recursos Humanos - Universidad de Sevilla">
+    <meta name="keyword" content="universidad de sevilla, empleo público, personal de administración y servicios">
+    <link rel="shortcut icon" href="/assets/coreui_theme/img/favicon.png">
+    <title>{% if title is defined %}{{ title }} - {% endif %}Universidad de Sevilla</title>
+    {% block css %}
+        <link href="/assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/assets/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+        <link href="/assets/coreui_theme/css/style.css" rel="stylesheet">
+        <link href="/assets/app.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<!-- BODY options, add following classes to body to change options
+		1. 'compact-nav'     	  - Switch sidebar to minified version (width 50px)
+		2. 'sidebar-nav'		  - Navigation on the left
+			2.1. 'sidebar-off-canvas'	- Off-Canvas
+				2.1.1 'sidebar-off-canvas-push'	- Off-Canvas which move content
+				2.1.2 'sidebar-off-canvas-with-shadow'	- Add shadow to body elements
+		3. 'fixed-nav'			  - Fixed navigation
+		4. 'navbar-fixed'		  - Fixed navbar
+		5. 'footer-fixed'		  - Fixed navbar
+	-->
+
+<body class="navbar-fixed compact-nav fixed-nav">
+<header class="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('homepage') }}"></a>
+        <ul class="nav navbar-nav hidden-md-down">
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">{{ 'Quienes somos'|trans }}</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">{{ 'Oferta empleo público'|trans }}</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="{{ path('people') }}">{{ 'Directorio'|trans }}</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">{{ 'Servicios'|trans }}</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<main class="main">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item"><a href="#">Admin</a>
+        </li>
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</main>
+
+{% block footer %}
+    {% include "portal/layout/footer.html.twig" %}
+{% endblock %}
+
+{% block js %}
+    <script src="/assets/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/tether/dist/js/tether.min.js"></script>
+    <script src="/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/pace/pace.min.js"></script>
+    <script src="/assets/coreui_theme/js/app.js"></script>
+    <script src="/assets/app.js"></script>
+{% endblock %}
+
+</body>
+</html>

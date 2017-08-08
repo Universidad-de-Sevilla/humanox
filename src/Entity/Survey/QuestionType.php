@@ -2,23 +2,25 @@
 
 namespace US\Humanox\Entity\Survey;
 
+use Doctrine\ORM\Mapping as ORM;
+
+
 /**
- * Class QuestionType
- * @Entity
- * @Table(name="SurveyQuestionType"
+ * @ORM\Entity
+ * @ORM\Table(name="SurveyQuestionType")
  */
 class QuestionType
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      * @var int
      */
     private $id;
 
     /**
-     * @Column(type="string")
+     * @ORM\Column(type="string")
      * @var string
      */
     private $name;

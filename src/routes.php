@@ -18,7 +18,7 @@ $app->before(function () {
 
 // Homepage
 $app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
+    return $app['twig']->render('portal/index.html.twig', array());
 })->bind('homepage');
 
 

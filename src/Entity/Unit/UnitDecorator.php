@@ -3,7 +3,6 @@
 namespace US\Humanox\Entity\Unit;
 
 /**
- * Class UnitDecorator
  * @Entity
  * @Table(name="AB_entidades_decoradores")
  */
