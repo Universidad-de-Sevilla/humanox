@@ -33,30 +33,36 @@
 <header class="navbar">
     <div class="container-fluid">
         <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">☰</button>
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="{{ path('intranet') }}"></a>
         <ul class="nav navbar-nav hidden-md-down">
             <li class="nav-item">
                 <a class="nav-link navbar-toggler layout-toggler" href="#">☰</a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link" href="{{ path('homepage') }}">{{ 'Homepage'|trans }}</a>
+                <a class="nav-link" href="#">{{ 'Dirección'|trans }}</a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link" href="#">{{ 'Courses'|trans }}</a>
+                <a class="nav-link" href="#">Planificación</a>
             </li>
             <li class="nav-item px-1">
-                <a class="nav-link" href="#">Settings</a>
+                <a class="nav-link" href="#">Gestión</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">Formación</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">Acción Social</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">Prevención</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link" href="#">Directorio</a>
             </li>
         </ul>
         <ul class="nav navbar-nav float-xs-right hidden-md-down">
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="icon-bell"></i><span class="tag tag-pill tag-danger">5</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-list"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
@@ -98,7 +104,7 @@
 </header>
 
 {% block menu_lateral_principal %}
-    {% include "layout/coreui/menu_lateral_principal.html.twig" %}
+    {% include "intranet/layout/menu_lateral_principal.html.twig" %}
 {% endblock %}
 
 <!-- Main content -->
@@ -128,11 +134,11 @@
 </main>
 
 {% block menu_lateral_secundario %}
-    {#{% include "layout/coreui/menu_lateral_secundario.html.twig" %}#}
+    {#{% include "intranet/layout/menu_lateral_secundario.html.twig" %}#}
 {% endblock %}
 
 {% block footer %}
-    {% include "layout/coreui/footer.html.twig" %}
+    {% include "intranet/layout/footer.html.twig" %}
 {% endblock %}
 
 {% block js %}

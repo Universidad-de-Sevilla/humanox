@@ -31,7 +31,7 @@
 <body class="navbar-fixed compact-nav fixed-nav">
 <header class="navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path('homepage') }}"></a>
+        <a class="navbar-brand" href="{{ path('portal') }}"></a>
         <ul class="nav navbar-nav hidden-md-down">
             <li class="nav-item px-1">
                 <a class="nav-link" href="#">{{ 'Quienes somos'|trans }}</a>
@@ -44,6 +44,9 @@
             </li>
             <li class="nav-item px-1">
                 <a class="nav-link" href="#">{{ 'Servicios'|trans }}</a>
+            </li>
+            <li class="nav-item px-1">
+                <a class="nav-link right" href="{{ path('intranet') }}">{{ 'Intranet'|trans }}</a>
             </li>
         </ul>
     </div>

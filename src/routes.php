@@ -16,11 +16,15 @@ $app->before(function () {
     return null;
 });
 
-// Homepage
+// Portal Homepage
 $app->get('/', function () use ($app) {
     return $app['twig']->render('portal/index.html.twig', array());
-})->bind('homepage');
+})->bind('portal');
 
+// Intranet Homepage
+$app->get('/intranet', function () use ($app) {
+    return $app['twig']->render('intranet/index.html.twig', array());
+})->bind('intranet');
 
 $app->get('/novedades', 'No hay novedades')
     ->bind('news');

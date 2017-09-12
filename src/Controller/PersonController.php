@@ -70,7 +70,7 @@ class PersonController
         /** @var Person $person */
         $person = $this->personRepository->find($id);
         if ($person) {
-            $response = $app['twig']->render('person/person_view.html.twig', array(
+            $response = $app['twig']->render('portal/person/person_view.html.twig', array(
                 'person' => $person
             ));
         } else {
@@ -170,7 +170,7 @@ class PersonController
      */
     public function addAction(Application $app)
     {
-        return $app['twig']->render('person/person_add.html.twig');
+        return $app['twig']->render('portal/person/person_add.html.twig');
     }
 
     /**
@@ -183,7 +183,7 @@ class PersonController
         /** @var Person $person */
         $person = $this->personRepository->find($id);
         if ($person) {
-            $response = $app['twig']->render('person/person_edit.html.twig', array(
+            $response = $app['twig']->render('portal/person/person_edit.html.twig', array(
                 'person' => $person));
         } else {
             $response = $this->redirectOnInvalidId($app, $id);
